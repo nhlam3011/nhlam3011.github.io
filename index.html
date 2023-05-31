@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PPT Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glassframe">
+        <h1>PPT Nhóm 1</h1>
+        <div id="methodContainer">
+            <label for="method">Chọn phương pháp</label>
+            <select id="method" onchange="toggleMethodContainer()">
+                <option value="chia-doi">Chia đôi</option>
+                <option value="gauss">Khử Gauss</option>
+            </select>
+        </div>
+        <div id="chiaDoiContainer" style="display: none;">
+            <h2>PHƯƠNG PHÁP CHIA ĐÔI</h2>
+            <div>
+                <label for="bac">Nhập bậc tối đa:</label>
+                <div class="input-wrapper">
+                    <input type="number" id="bac" placeholder="Bậc > 0">
+                    <button id="nhap" onclick="addHeSoInput()">Thêm hệ số</button>
+                </div>
+            </div>
+            <div id="heSoContainer"></div>
+            <div>
+                <label for="a">Giá trị a:</label>
+                <input type="number" id="a" placeholder="a < b">
+                <label for="b">Giá trị b:</label>
+                <input type="number" id="b" placeholder="b > a">
+            </div>
+            <div>
+                <label for="epsilon">Nhập EPSILON:</label>
+                <input type="number" id="epsilon">
+            </div>
+                <button id="giai" onclick="solveChiaDoi()">Giải</button>
+        </div>
+        <div id="gaussContainer" style="display: none;">
+            <h2>PHƯƠNG PHÁP KHỬ GAUSS</h2>
+            <div>
+                <div class="matrix_size">
+                    <input type="number" id="size" placeholder="Kích thước ma trận">
+                </div>
+
+                <button id="nhap" onclick="addMatrixInputs()">Nhập ma trận</button>
+            </div>
+            <div id="matrixContainer"></div>
+            <button id="giai" onclick="solveGauss()">Giải</button>
+        </div>
+        <div id="resultContainer">
+            <h2 id="result">Kết quả</h2>
+            <div id="solution"></div>
+        </div>
+        <div>
+            <button id="xoa" onclick="clearSolution()">Xóa</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

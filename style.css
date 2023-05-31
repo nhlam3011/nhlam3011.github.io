@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=K2D:wght@500&family=Reem+Kufi&family=Sigmar&display=swap');
+body {
+    background-image: url("wallpaper.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Reem Kufi', sans-serif;
+    margin: 0;
+    font-size: 15px;
+    padding: 0;
+}
+.glassframe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 1px;
+    margin: 10px 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 90%;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    text-align: center;
+    letter-spacing: 2px;
+    font-family: 'Sigmar', cursive;
+    margin: 20px;
+}
+
+
+select#method {
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+#methodContainer {
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+#methodContainer label {
+    font-weight: bold;
+    font-size: 25px;
+    font-family: 'K2D', sans-serif;
+    align-items: center;
+    display: flex;
+    padding: 10px;
+}
+
+#methodContainer select {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+#resultContainer {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+h2#result {
+    margin-bottom: -10px;
+    text-align: center;
+    font-size: 30px;
+}
+
+input#size, #bac, #a, #b, #epsilon{
+    width: 100%;
+    align-items: center;
+    padding: 5px;
+    margin: 5px;
+    margin-top: 5px;
+    height: 30px;
+    text-align: center;
+    font-size: 20px;
+}
+
+div.gaussContainer,
+#chiaDoiContainer {
+    margin: 0px;
+}
+
+div.matrix_size {
+    font-size: 25px;
+}
+input[type="number"] {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    margin: 5px;
+    margin-top: 5px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+button#xoa {
+    background-color: #369bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 70px;
+    height: 40px;
+    align-self: center;
+    font-size: 20px;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+button#giai {
+    background-color: #369bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 70px;
+    height: 40px;
+    align-self: center;
+    font-size: 20px;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+button#nhap {
+    background-color: #369bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 200px;
+    height: 40px;
+    align-self: center;
+    font-size: 20px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 5px;
+    cursor: pointer;
+    padding: 10px 10px;
+}
+button#giai:hover {
+    background-color: #11d71b;
+}
+
+button#nhap:hover {
+    background-color: #11d71b;
+}
+
+button#xoa:hover {
+    background-color: #e73b02;
+}
+
+#heSoContainer,
+#matrixContainer {
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+#matrixContainer input {
+    display: block;
+    width: 40%;
+    height: 35px;
+    padding: 5px;
+    text-align: center;
+    font-family: 'Reem Kufi', sans-serif;
+}
+
+#heSoContainer label {
+    margin-bottom: 5px;
+    text-align: center;
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 15px;
+}
+
+#matrixContainer div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+#matrixContainer label {
+    flex: 0 0 20%;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#matrixContainer input {
+    flex: 1;
+}
+
+div.matrix_size {
+    display: flex;
+    max-width: 100%;
+}
+
+div.matrix_size label {
+    margin-top: 10px;
+    font-size: 100%;
+}
+#solution {
+    margin-top: 20px;
+    width: 100%;
+    font-size: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table th,
+table td {
+    padding: 5px;
+    text-align: center;
+}
+
+table th {
+    background-color: #f2f2f2;
+
+}
+
+@media screen and (max-width: 600px) {
+    input[type="number"],
+    button {
+        width: 100%;
+    }
+}
+div#resultContainer {
+    margin-top: -20px;
+}
+
+p {
+    font-size: 25px;
+}
