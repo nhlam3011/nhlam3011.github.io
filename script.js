@@ -1,4 +1,3 @@
-// Function to toggle the method container based on the selected method
 function toggleMethodContainer() {
     var method = document.getElementById("method").value;
     var chiaDoiContainer = document.getElementById("chiaDoiContainer");
@@ -13,7 +12,6 @@ function toggleMethodContainer() {
     }
 }
 
-// Function to add input fields for coefficients in Chia doi method
 function addHeSoInput() {
     var bac = parseInt(document.getElementById("bac").value);
     var heSoContainer = document.getElementById("heSoContainer");
@@ -30,7 +28,6 @@ function addHeSoInput() {
     }
 }
 
-// Function to add input fields for matrix in Gauss method
 function addMatrixInputs() {
     var size = parseInt(document.getElementById("size").value);
     var matrixContainer = document.getElementById("matrixContainer");
@@ -51,7 +48,6 @@ function addMatrixInputs() {
     }
 }
 
-// Function to solve the equation using the Chia doi method
 function solveChiaDoi() {
     var bac = parseInt(document.getElementById("bac").value);
     var heSo = [];
@@ -91,7 +87,6 @@ function solveChiaDoi() {
     displaySolution(x.toFixed(5));
 }
 
-// Function to calculate the value of the function given the coefficients and x value
 function calculateFunctionValue(x, coefficients) {
     var result = 0;
 
@@ -102,7 +97,6 @@ function calculateFunctionValue(x, coefficients) {
     return result;
 }
 
-// Function to solve the system of equations using Gaussian elimination
 function solveGauss() {
     var size = parseInt(document.getElementById("size").value);
     var matrix = [];
@@ -149,7 +143,6 @@ function solveGauss() {
     displaySolution(solution);
 }
 
-// Function to display the solution
 function displaySolution(solution) {
     var solutionContainer = document.getElementById("solution");
 
@@ -182,7 +175,6 @@ function displaySolution(solution) {
     }
 }
 
-// Function to clear the solution display
 function clearSolution() {
     var solutionContainer = document.getElementById("solution");
     solutionContainer.innerHTML = "";
