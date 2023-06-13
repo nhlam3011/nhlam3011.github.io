@@ -2,6 +2,7 @@
 body {
     background-image: url("wallpaper.jpg");
     background-size: cover;
+    filter: blur(70%);
     background-position: center fixed;
     display: flex;
     justify-content: center;
@@ -17,14 +18,18 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 1);
     border-radius: 15px;
-    padding: 1px;
+    padding: 20px;
     margin: 10px 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 4);
     max-width: 736px;
     width: 100%;
     animation: fadeIn 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.glassframe::before {
+  height: 750px;
+  transition: height 1s ease 0s;
 }
 
 @keyframes fadeIn {
@@ -45,6 +50,26 @@ h1 {
     margin: 20px;
 }
 
+a {
+    margin-top: -30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 25px;
+    transition: transform .2s;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover {
+    transform: scale(1.1);
+    color: rgb(255, 0, 0);
+}
 
 select#method {
     font-family: 'Reem Kufi', sans-serif;
@@ -52,7 +77,9 @@ select#method {
     border-radius: 10px;
     text-align: center;
     color: rgb(0, 0, 0);
+    border: solid 2px;
 }
+
 #methodContainer {
     align-items: center;
     margin-bottom: 5px;
@@ -97,32 +124,32 @@ h2#result {
 }
 
 input#size {
-  width: 100%;
-  max-width: 300px;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  padding: 5px;
-  margin: 5px;
-  margin-top: 5px;
-  height: 30px;
-  text-align: center;
-  font-size: 20px;
+    width: 100%;
+    max-width: 300px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    margin: 5px;
+    margin-top: 5px;
+    height: 30px;
+    text-align: center;
+    font-size: 20px;
 }
 
 input#bac, #a, #b, #epsilon {
-  width: 100%;
-  max-width: 300px;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  padding: 5px;
-  margin: 5px;
-  margin-top: 5px;
-  height: 30px;
-  text-align: center;
-  font-size: 20px;
-  margin-left: 31.5px;
+    width: 100%;
+    max-width: 300px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    margin: 5px;
+    margin-top: 5px;
+    height: 30px;
+    text-align: center;
+    font-size: 20px;
+    margin-left: 31.5px;
 }
 
 div.gaussContainer,
@@ -135,17 +162,18 @@ div.matrix_size {
     font-size: 25px;
 }
 input[type="number"] {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 5px;
-  height: 30px;
-  margin: 5px;
-  margin-top: 5px;
-  border-radius: 10px;
-  font-size: 20px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+    height: 30px;
+    margin: 5px;
+    margin-top: 5px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 button#xoa {
@@ -161,6 +189,7 @@ button#xoa {
     margin: 0 auto;
     cursor: pointer;
     margin-bottom: 20px;
+    transition: transform .2s;
 }
 
 button#giai {
@@ -173,54 +202,58 @@ button#giai {
     align-self: center;
     font-size: 20px;
     display: block;
-    margin: 0 auto;
+    margin: auto;
     cursor: pointer;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    transition: transform .2s;
 }
 
 button#nhap {
-  background-color: #369bff;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  width: 146px;
-  height: 40px;
-  align-self: center;
-  font-size: 20px;
-  display: block;
-  margin: 0 auto;
-  margin-top: 10px;
-  cursor: pointer;
-  padding: 10px 10px;
+    background-color: #369bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 146px;
+    height: 40px;
+    align-self: center;
+    font-size: 20px;
+    display: block;
+    margin: 10px auto;
+    margin-top: 10px;
+    cursor: pointer;
+    padding: 10px 10px;
+    transition: transform .2s;
 }
 
 button#giai:hover {
     background-color: #11d71b;
+    transform: scale(1.1);
 }
 
 button#nhap:hover {
     background-color: #11d71b;
+    transform: scale(1.1);
 }
 
 button#xoa:hover {
     background-color: #e73b02;
+    transform: scale(1.1);
 }
 div#heSoContainer {
-  display: flex;
-  align-items: flex-start;
-  max-width: 200px;
-  width: 100%;
-  padding: 10px;
-  justify-content: center;
-  flex-direction: column;
-  align-content: center;
-  flex-wrap: nowrap;
-  margin-left: 63px;
+    display: flex;
+    align-items: flex-start;
+    max-width: 235px;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: nowrap;
+    margin-left: 63px;
 }
 
 #matrixContainer {
     margin-top: 10px;
-    padding-bottom: 10px;
 }
 
 #matrixContainer input {
@@ -233,10 +266,11 @@ div#heSoContainer {
 }
 
 #heSoContainer label {
+    margin-left: -63.6px;
     margin-bottom: 5px;
     text-align: center;
     font-family: 'Reem Kufi', sans-serif;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 #matrixContainer div {

@@ -8,6 +8,7 @@
 <body>
     <div class="glassframe">
         <h1>PPT Nhóm 1</h1>
+        <a href="Rating\index.html">Members</a> 
         <div id="methodContainer">
             <label for="method">Chọn phương pháp</label>
             <select id="method" onchange="toggleMethodContainer()">
@@ -21,16 +22,19 @@
                 <label for="bac">Nhập bậc tối đa:</label>
                 <div class="input-wrapper">
                     <input type="number" id="bac" placeholder="Bậc > 0">
-                    <button id="nhap" onclick="addHeSoInput()">Thêm</button>
+                    <button id="nhap" onclick="addHeSoInput()">Thêm hệ số</button>
                 </div>
             </div>
             <div id="heSoContainer"></div>
             <div>
-                <input type="number" id="a" placeholder="Giá trị a">
-                <input type="number" id="b" placeholder="Giá trị b">
+                <label for="a">Giá trị a:</label>
+                <input type="number" id="a" placeholder="a < b">
+                <label for="b">Giá trị b:</label>
+                <input type="number" id="b" placeholder="b > a">
             </div>
             <div>
-                <input type="number" id="epsilon" placeholder="Epsilon">
+                <label for="epsilon">Nhập EPSILON:</label>
+                <input type="number" id="epsilon">
             </div>
                 <button id="giai" onclick="solveChiaDoi()">Giải</button>
         </div>
@@ -40,8 +44,7 @@
                 <div class="matrix_size">
                     <input type="number" id="size" placeholder="Kích thước ma trận">
                 </div>
-
-                <button id="nhap" onclick="addMatrixInputs()">Nhập</button>
+                <button id="nhap" onclick="addMatrixInputs()">Nhập ma trận</button>
             </div>
             <div id="matrixContainer"></div>
             <button id="giai" onclick="solveGauss()">Giải</button>
