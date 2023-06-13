@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="rating.css">
+    <title>Rating</title>
+</head>
+<body>
+    <h1>Đánh giá</h1>
+    <form id="ratingForm">
+        <div>
+            <label for="full_name">Full Name</label>
+            <input type="text" id="full_name" name="full_name" required>
+        </div>
+        <div>
+            <label for="task">Task</label>
+            <input type="text" id="task" name="task" required>
+        </div>
+        <div>
+            <label for="rate">Rate</label>
+            <div class="rating">
+                <input type="radio" id="star3" name="rating" value="3">
+                <label for="star3"></label>
+                <input type="radio" id="star2" name="rating" value="2">
+                <label for="star2"></label>
+                <input type="radio" id="star1" name="rating" value="1">
+                <label for="star1"></label>
+            </div>
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <table id="ratingTable">
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Task</th>
+                <th>Rating</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="ratingTableBody">
+        </tbody>
+    </table>
+
+    <script src="rating.js"></script>
+</body>
+</html>
