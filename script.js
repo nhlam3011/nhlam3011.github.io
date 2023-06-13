@@ -64,7 +64,7 @@ function solveChiaDoi() {
     var fB = calculateFunctionValue(b, heSo);
 
     if (fA * fB >= 0) {
-        displaySolution("Không có nghiệm");
+        displaySolution("no-solution");
         return;
     }
 
@@ -132,7 +132,18 @@ function solveGauss() {
     }
 
     var solution = [];
+    var isNoSolution = false;
+    var isInfiniteSolutions = false;
+
     for (var i = size - 1; i >= 0; i--) {
+        if (matrix[i][i] === 0 && matrix[i][size] !== 0) {
+            isNoSolution = true;
+            break;
+        } else if (matrix[i][i] === 0 && matrix[i][size] === 0) {
+            isInfiniteSolutions = true;
+            break;
+        }
+
         solution[i] = matrix[i][size];
         for (var j = i + 1; j < size; j++) {
             solution[i] -= matrix[i][j] * solution[j];
@@ -140,14 +151,16 @@ function solveGauss() {
         solution[i] /= matrix[i][i];
     }
 
-    displaySolution(solution);
+    displaySolution(solution, isNoSolution, isInfiniteSolutions);
 }
 
-function displaySolution(solution) {
+function displaySolution(solution, isNoSolution, isInfiniteSolutions) {
     var solutionContainer = document.getElementById("solution");
 
-    if (typeof solution === "string") {
-        solutionContainer.innerHTML = "<p>" + "Nghiệm x= " + solution + "</p>";
+    if (isNoSolution) {
+        solutionContainer.innerHTML = "<p>Hệ phương trình vô nghiệm</p>";
+    } else if (isInfiniteSolutions) {
+        solutionContainer.innerHTML = "<p>Hệ phương trình có vô số nghiệm</p>";
     } else {
         var table = document.createElement("table");
         var tableHeader = document.createElement("tr");
