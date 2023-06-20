@@ -1,71 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Members</title>
-    <link rel="stylesheet" href="member.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>PPT Project</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+    <link rel="shortcut icon" type="image/x-icon" href="calc.ico" />
 <body>
-    <div class="blur-background">
-        <a href="https://nhlam3011.github.io/" class="back-link" title="Back">Back</a>
-        <h1>Members</h1>
-        <table id="excelTable">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Task</th>
-                    <th>Rating</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+    <div class="glassframe">
+        <h1>PPT Nhóm 1</h1>
+        <a href="rating.html">Members</a> 
+        <div id="methodContainer">
+            <label for="method">Chọn phương pháp</label>
+            <select id="method" onchange="toggleMethodContainer()">
+                <option value="chia-doi">Chia đôi</option>
+                <option value="gauss">Khử Gauss</option>
+            </select>
+        </div>
+        <div id="chiaDoiContainer" style="display: none;">
+            <h2>PHƯƠNG PHÁP CHIA ĐÔI</h2>
+            <div>
+                <label for="bac">Nhập bậc tối đa:</label>
+                <div class="input-wrapper">
+                    <input type="number" id="bac" placeholder="Bậc > 0">
+                    <button id="nhap" onclick="addHeSoInput()">Thêm hệ số</button>
+                </div>
+            </div>
+            <div id="heSoContainer"></div>
+            <div>
+                <label for="a">Giá trị a:</label>
+                <input type="number" id="a" placeholder="a < b">
+                <label for="b">Giá trị b:</label>
+                <input type="number" id="b" placeholder="b > a">
+            </div>
+            <div>
+                <label for="epsilon">Nhập EPSILON:</label>
+                <input type="number" id="epsilon">
+            </div>
+                <button id="giai" onclick="solveChiaDoi()">Giải</button>
+        </div>
+        <div id="gaussContainer" style="display: none;">
+            <h2>PHƯƠNG PHÁP KHỬ GAUSS</h2>
+            <div>
+                <div class="matrix_size">
+                    <input type="number" id="size" placeholder="Kích thước ma trận">
+                </div>
+                <button id="nhap" onclick="addMatrixInputs()">Nhập ma trận</button>
+            </div>
+            <div id="matrixContainer"></div>
+            <button id="giai" onclick="solveGauss()">Giải</button>
+        </div>
+        <div id="resultContainer">
+            <h2 id="result">Kết quả</h2>
+            <div id="solution"></div>
+        </div>
+        <div>
+            <button id="xoa" onclick="clearSolution()">Xóa</button>
+        </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
-    <script>
-        var excelFilePath = 'Members.xlsx';
-        function readExcelFile() {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                var data = new Uint8Array(e.target.result);
-                var workbook = XLSX.read(data, { type: 'array' });
-                var worksheet = workbook.Sheets[workbook.SheetNames[0]];
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
-                var tbody = document.querySelector('#excelTable tbody');
-                jsonData.forEach(function(row) {
-                    var tr = document.createElement('tr');
-                    row.forEach(function(cellData, index) {
-                        var td = document.createElement('td');
-                        if (index === 2) {
-                            var rating = parseInt(cellData);
-                            for (var i = 0; i < rating; i++) {
-                                var starIcon = document.createElement('i');
-                                starIcon.classList.add('fas', 'fa-star');
-                                td.appendChild(starIcon);
-                            }
-                        } else {
-                            td.textContent = cellData;
-                        }
-                        tr.appendChild(td);
-                    });
-                    tbody.appendChild(tr);
-                });
-            };
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', excelFilePath, true);
-            xhr.responseType = 'arraybuffer';
-            xhr.onload = function(e) {
-                if (xhr.status == 200) {
-                    var arrayBuffer = xhr.response;
-                    reader.readAsArrayBuffer(new Blob([arrayBuffer], { type: 'application/octet-stream' }));
-                }
-            };
-            xhr.send();
-        }
-        readExcelFile();
-    </script>
-</body>
-</html>
+    <script src="script.js"></script>
