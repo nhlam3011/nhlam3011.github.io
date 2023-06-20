@@ -1,50 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="rating.css">
-    <title>Rating</title>
+    <title>Members</title>
+    <link rel="stylesheet" href="member.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-    <link rel="shortcut icon" type="image/x-icon" href="star.ico" />
 <body>
-    <h1>Đánh giá</h1>
-    <form id="ratingForm">
-        <div>
-            <label for="full_name">Full Name</label>
-            <input type="text" id="full_name" name="full_name" required>
-        </div>
-        <div>
-            <label for="task">Task</label>
-            <input type="text" id="task" name="task" required>
-        </div>
-        <div>
-            <label for="rate">Rate</label>
-            <div class="rating">
-                <input type="radio" id="star3" name="rating" value="3">
-                <label for="star3"></label>
-                <input type="radio" id="star2" name="rating" value="2">
-                <label for="star2"></label>
-                <input type="radio" id="star1" name="rating" value="1">
-                <label for="star1"></label>
-            </div>
-        </div>
-        <input type="submit" value="Submit">
-    </form>
-
-    <table id="ratingTable">
-        <thead>
-            <tr>
-                <th>Full Name</th>
-                <th>Task</th>
-                <th>Rating</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody id="ratingTableBody">
-        </tbody>
-    </table>
-
-    <script src="rating.js"></script>
+    <div class="blur-background">
+        <a href="https://nhlam3011.github.io/" class="back-link" title="Back">Back</a>
+        <h1>Members</h1>
+        <table id="excelTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Task</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script>
+        var excelFilePath = 'Members.xlsx';
+        function readExcelFile() {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var data = new Uint8Array(e.target.result);
+                var workbook = XLSX.read(data, { type: 'array' });
+                var worksheet = workbook.Sheets[workbook.SheetNames[0]];
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+                var tbody = document.querySelector('#excelTable tbody');
+                jsonData.forEach(function(row) {
+                    var tr = document.createElement('tr');
+                    row.forEach(function(cellData, index) {
+                        var td = document.createElement('td');
+                        if (index === 2) {
+                            var rating = parseInt(cellData);
+                            for (var i = 0; i < rating; i++) {
+                                var starIcon = document.createElement('i');
+                                starIcon.classList.add('fas', 'fa-star');
+                                td.appendChild(starIcon);
+                            }
+                        } else {
+                            td.textContent = cellData;
+                        }
+                        tr.appendChild(td);
+                    });
+                    tbody.appendChild(tr);
+                });
+            };
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', excelFilePath, true);
+            xhr.responseType = 'arraybuffer';
+            xhr.onload = function(e) {
+                if (xhr.status == 200) {
+                    var arrayBuffer = xhr.response;
+                    reader.readAsArrayBuffer(new Blob([arrayBuffer], { type: 'application/octet-stream' }));
+                }
+            };
+            xhr.send();
+        }
+        readExcelFile();
+    </script>
 </body>
 </html>
