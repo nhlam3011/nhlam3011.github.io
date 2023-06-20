@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&family=Quicksand:wght@500&display=swap');
+
+body {
+    background-image: url(Wallpapermember.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 900px;
+    background-color: #f9f9f9;
+}
+
+th, td {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 21px;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    background-color: #ffffff;  
+}
+
+th {
+    font-family: 'Kanit', sans-serif;
+    background-color: #a400bda1;
+    color: #fff;
+}
+
+h1 {
+    margin-top: 15px;
+    font-family: 'Kanit', sans-serif;
+    font-size: 30px;
+    text-align: center;
+    color: #ffffff;
+}
+
+a.back-link {
+    margin-top: 40px;
+    margin-left: -100px;
+}
+
+.back-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.back-link:hover {
+    background-color: #ff2222;
+    color: black
+}
+
+
+.fa-star::before {
+    color: yellow;
+}
+
+@media screen and (max-width: 600px) {
+    table {
+        font-size: 20px;
+    }
+}
