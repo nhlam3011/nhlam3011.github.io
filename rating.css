@@ -1,193 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&family=Quicksand:wght@500&display=swap');
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f1f1f1;
-    margin: 0;
-    padding: 20px;
-    animation: fadeIn 0.5s ease-in-out;
+    background-image: url(Wallpapermember.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 900px;
+    background-color: #f9f9f9;
+}
+
+th, td {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 21px;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    background-color: #ffffff;  
+}
+
+th {
+    font-family: 'Kanit', sans-serif;
+    background-color: #a400bda1;
+    color: #fff;
 }
 
 h1 {
-    color: #333;
+    margin-top: 15px;
+    font-family: 'Kanit', sans-serif;
+    font-size: 30px;
     text-align: center;
+    color: #ffffff;
 }
 
-form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+a.back-link {
+    margin-top: 40px;
+    margin-left: -100px;
 }
 
-label {
-    display: flex;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-div {
-    padding: 10px;
-}
-
-input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
+.back-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
     border-radius: 4px;
-    transition: border-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
-input[type="text"]:focus {
-    border-color: #4CAF50;
-}
-
-input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s;
-}
-
-input[type="submit"]:hover {
-    background-color: #008836;
-}
-
-div.rating {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.rating {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row-reverse;
-}
-
-.rating input[type="radio"] {
-    display: none
+.back-link:hover {
+    background-color: #ff2222;
+    color: black
 }
 
 
-.rating label {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    height: 30px;
-    background-color: #ccc;
-    margin-right: 5px;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: background-color 0.3s;
+.fa-star::before {
+    color: yellow;
 }
 
-.rating label:before {
-    content: '';
-    width: 30px;
-    height: 30px;
-    background-color: #ffea00;
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 0.2s;
-}
-
-label.rate {
-    justify-content: center;
-}
-
-.rating label:hover:before,
-.rating input[type="radio"]:checked ~ label:before {
-    opacity: 1;
-    background-color: #ffea00;
-}
-
-#ratingTable {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-#ratingTable th,
-#ratingTable td {
-    padding: 10px;
-    text-align: center;
-    border-bottom: 1px solid #ccc;
-}
-
-#ratingTable th {
-    background-color: #4CAF50;
-    color: white;
-}
-
-#ratingTable tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.edit-btn {
-    background-color: #2196F3;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.edit-btn:hover {
-    background-color: #0b7dda;
-}
-
-.save-btn {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.save-btn:hover {
-    background-color: #45a049;
-}
-
-.delete-btn {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.delete-btn:hover {
-    background-color: #d32f2f;
-}
-
-/* Responsive CSS */
 @media screen and (max-width: 600px) {
-    form {
-        padding: 10px;
-    }
-
-    input[type="submit"] {
-        width: 100%;
-    }
-}
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
+    table {
+        font-size: 20px;
     }
 }
